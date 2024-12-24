@@ -1,0 +1,130 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Excel File</title>
+</head>
+<body>
+    <h1>Upload Excel File with Contacts</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload and Send Messages</button>
+    </form>
+</body>
+</html> {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Excel File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .form-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .form-table th {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .form-table td input[type="file"],
+        .form-table td button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .form-table td button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .form-table td button:hover {
+            background-color: #45a049;
+        }
+
+        .go-back {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .go-back a {
+            text-decoration: none;
+            font-size: 16px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .go-back a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload Excel File with Contacts</h1>
+
+        <!-- Upload Form Table -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="form-table">
+                <tr>
+                    <th>Excel File</th>
+                    <td>{{ form.excel_file }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="submit">Upload and Send Messages</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <!-- Go Back Link -->
+        <div class="go-back">
+            <a href="{% url 'send_messages' %}">Go Back</a>
+        </div>
+    </div>
+
+</body>
+</html>
